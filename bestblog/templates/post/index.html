@@ -1,8 +1,12 @@
 {% extends "post/post_base.html" %}
 
 {% block content %}
-<h3>Post Lists</h3>
+<h2>Post Lists</h2>
 {% for post in posts %}
-{{ post.title }}
+<p>
+<a href="/post/{{ post.id }}">
+	<h3> {{ post.title }} </h3>
+</a>
+</p>
 {% endfor %}
 {% endblock content %}

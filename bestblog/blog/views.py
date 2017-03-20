@@ -8,3 +8,10 @@ def index(request):
            "post/index.html",
            {"posts": Post.objects.all()},
            )
+
+def detail(request, post_id):
+    return render(
+           request,
+           "post/detail.html",
+           {"post": Post.objects.get(id=post_id)},
+           )
