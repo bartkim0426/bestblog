@@ -1,8 +1,13 @@
 from django.conf.urls import url
-from blog.views import index, detail
+from blog.views import *
 
 
 urlpatterns = [
     url(r'^$', index, name='index'),
     url(r'^(?P<post_id>\d+)/$', detail, name='detail'),
+    url(r'^new/$', new, name='new'),
+    url(r'^create/$', create, name='create'),
+    url(r'^(?P<post_id>\d+)/edit/$', edit, name='edit'),
+    url(r'^(?P<post_id>\d+)/update/$', update, name='update'),
+    url(r'^(?P<post_id>\d+)/delete/$', delete, name='delete'),
 ]
