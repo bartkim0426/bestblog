@@ -8,5 +8,9 @@
 	<h3> {{ post.title }} </h3>
 </a>
 </p>
+
 {% endfor %}
+
+<a href="{% url 'new' %}"> 새 글쓰기</a>
+
 {% endblock content %}
