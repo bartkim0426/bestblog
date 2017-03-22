@@ -7,6 +7,13 @@
 {{ post.content}} 
 </p>
 
-<a href="/post/"> list로 돌아가기  </a>
+
+
+<p>
+<a href="{% url "index" %}"> list로 돌아가기  </a>
 </br>
+<a href="/post/{{ post.id }}/delete/"> 삭제하기 </a>
+</br>
+<a href="/post/{{ post.id }}/edit/"> 수정하기 </a>
+</p>
 {% endblock content %}
