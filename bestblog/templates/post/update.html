@@ -1,14 +1,7 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h2> Edit Post </h2>
+<h2> New Posts </h2>
 
-<form action="/post/{{ post.id }}/update/" method="POST">
-
-	{% csrf_token %}
-	<input type="text" name="title" placeholder="title" value="{{ post.title }}">
-	<input type="text" name="content" placeholer="title" value="{{ post.content }}">
-	<input type="submit" value="publish">
-</form>
-
+{% include "post/form.html" with action=post.get_update_url %}
 {% endblock content %}

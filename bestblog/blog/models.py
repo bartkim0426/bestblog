@@ -14,3 +14,9 @@ class Post(models.Model):
                "detail", 
                kwargs = {"post_id" : self.id},
                )
+    
+    def get_update_url(self):
+        return reverse(
+               "update",
+               kwargs = {"post_id": self.id},
+                )
