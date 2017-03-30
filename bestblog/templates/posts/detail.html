@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h2>{{ post.title }}</h2>
+<p>
+{{ post.content}} 
+</p>
+
+{{ post.comment_set.count }} 개의 댓글이 있습니다.</br>
+<ul>
+{% for comment in comments %}
+<li id="comment-{{ comment.id }}">{{ comment.content }}</li>
+{% endfor %}
+</ul>
+
+<form action={% url "posts:new-comments" post_id=post.id %} method=POST>
+	{% csrf_token %}
+	<input type="text" name="content" placeholder="댓글">
+	<input type="submit" value="댓글달기">
+</form>
+
+<p>
+<a href="{% url "posts:index" %}"> list로 돌아가기  </a>
+</br>
+<a href={% url "posts:delete" post_id=post.id %}> 삭제하기 </a>
+</br>
+<a href={% url "posts:edit" post_id=post.id %}> 수정하기 </a>
+</p>
+{% endblock content %}

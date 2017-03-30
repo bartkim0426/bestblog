@@ -1,27 +1,36 @@
 from django.shortcuts import render, redirect
 from django.urls.base import reverse
-from .models import Post
+from blog.models import Post
 
 
 def index(request):
+
+    posts = Post.objects.all()
+
     return render(
            request,
-           "post/index.html",
-           {"posts": Post.objects.all()},
+           "posts/index.html",
+           {"posts": posts},
            )
 
 def detail(request, post_id):
+    post = Post.objects.get(id=post_id)
+    comments = post.comment_set.all
+
     return render(
            request,
-           "post/detail.html",
-           {"post": Post.objects.get(id=post_id)},
+           "posts/detail.html",
+           {
+           "post": post,
+           "comments": comments, 
+           },
            )
 
 
 def new(request):
     return render(
             request,
-            "post/create.html",
+            "posts/create.html",
             {},
             )
 
@@ -43,7 +52,7 @@ def edit(request, post_id):
 
     return render(
             request,
-            "post/update.html",
+            "posts/update.html",
             {"post": post_now},
             )
 
@@ -62,12 +71,13 @@ def update(request, post_id):
 
             
 def delete(request, post_id):
+
     post_now = Post.objects.get(id=post_id)
     
     post_now.delete()
 
     return redirect(
             reverse(
-                "index",
+                "posts:index",
                 )
             )

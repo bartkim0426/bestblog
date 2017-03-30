@@ -3,5 +3,5 @@
 {% block content %}
 <h2> New Posts </h2>
 
-{% include "post/form.html" with action="/post/create/" %}
+{% include "posts/form.html" with action=post.get_update_url %}
 {% endblock content %}

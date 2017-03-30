@@ -1,7 +1,6 @@
-{% extends "post/post_base.html" %}
-
 {% block content %}
 <h2>Post Lists</h2>
+
 {% for post in posts %}
 <p>
 <a href="{{ post.get_absolute_url }}">
