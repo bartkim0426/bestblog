@@ -12,4 +12,7 @@ urlpatterns = [
     url(r'^(?P<post_id>\d+)/delete/$', delete, name='delete'),
     # comments
     url(r'^(?P<post_id>\d+)/comments/new/$', new_comments, name='new-comments'),
+    url(r'^(?P<post_id>\d+)/comments/(?P<comment_id>\d+)/edit/$', edit_comments, name='edit-comments'),
+    url(r'^(?P<post_id>\d+)/comments/(?P<comment_id>\d+)/update/$', update_comments, name='update-comments'),
+    url(r'^(?P<post_id>\d+)/comments/(?P<comment_id>\d+)/delete/$', delete_comments, name='delete-comments'),
 ]

@@ -9,11 +9,19 @@
 
 {{ post.comment_set.count }} 개의 댓글이 있습니다.</br>
 <ul>
-{% for comment in comments %}
-<li id="comment-{{ comment.id }}">{{ comment.content }}/ 
-	<a href={% url "posts:edit-comments" post_id=post.id comment_id=comment.id %}>댓글 수정</a>
-	<a href={% url "posts:delete-comments" post_id=post.id comment_id=comment.id %}>댓글 삭제</a>
-</li> 
+{% for post_comment in comments %}
+
+{% if comment == post_comment %}
+<form action={% url "posts:update-comments" post_id=post.id comment_id=comment.id %} method=POST>
+	{% csrf_token %}
+	<input type="text" name="content" value="{{ comment.content }}">
+	<input type="submit" value="댓글수정">
+</form>
+
+{% else %}
+<li id="comment-{{ comment.id }}">{{ comment.content }}/ <a href={% url "posts:edit-comments" post_id=post.id comment_id=post_comment.id %}>댓글 수정</a></li> 
+{% endif %}
+
 {% endfor %}
 </ul>
 
