@@ -9,7 +9,9 @@
 		<a href={% url "posts:detail" post_id=post.id %} class="post-title">{{ post.title }}({{ post.comment_set.count }})</a>
 	  <h3><!--{{ post.description }}-->description</h3>
 	  <hr>
-	  <p>{{ post.content }}</p>
+	  <p>{{ post.content }}
+	  <img src="{{ post.get_image_url }}" alt="{{ post.title }}"/>
+	  </p>
 	  <a href="#" class="continue-reading">Continue reading</a>
 	</div>
 	<div class="author-and-date">

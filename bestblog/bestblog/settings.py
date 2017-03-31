@@ -2,6 +2,7 @@
 import os
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+PROJECT_ROOT_DIR = os.path.dirname(BASE_DIR)
 
 SECRET_KEY = 'i#1!+i5^d(zq^ma^$x)@qzvsf8--=@2-16l%v%fsp$_9@6rc%#'
 
@@ -105,3 +106,13 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
 ]
 INTERNAL_IPS = ('127.0.0.1')
+
+# Media
+
+MEDIA_ROOT = os.path.join(
+        BASE_DIR,
+        "dist",
+        "media",
+        )
+
+MEDIA_URL = '/media/'

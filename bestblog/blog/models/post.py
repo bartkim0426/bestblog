@@ -14,6 +14,10 @@ class Post(models.Model):
 
     title = models.CharField(verbose_name="제목", max_length=20, blank=True)
     content = models.TextField(verbose_name="본문", max_length=1000, blank=True)
+    image = models.ImageField(
+            null=True,
+            blank=True,
+            )
     is_public = models.BooleanField(
             default=True
             )
@@ -32,3 +36,9 @@ class Post(models.Model):
                "posts:update",
                kwargs = {"post_id": self.id},
                 )
+
+    def get_image_url(self):
+        if self.image:
+            return self.image.url
+        else:
+            return "http://placehold.it/300x200"

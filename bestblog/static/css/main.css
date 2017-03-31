@@ -183,3 +183,7 @@ header .logo a {
   text-align:center;
 }
 
+section article div p img{
+  width: 300px;
+  height; 200px;
+}

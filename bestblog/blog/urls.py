@@ -1,4 +1,5 @@
 from django.conf.urls import url
+
 from blog.views import *
 
 
@@ -15,4 +16,4 @@ urlpatterns = [
     url(r'^(?P<post_id>\d+)/comments/(?P<comment_id>\d+)/edit/$', edit_comments, name='edit-comments'),
     url(r'^(?P<post_id>\d+)/comments/(?P<comment_id>\d+)/update/$', update_comments, name='update-comments'),
     url(r'^(?P<post_id>\d+)/comments/(?P<comment_id>\d+)/delete/$', delete_comments, name='delete-comments'),
-]
+] 
