@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+<h2> Admin Page </h2>
+{{ request.user }}님 환영합니다! 
+<ul>
+	<li> <a href="{% url "auth:signup" %}"> signup </a> </li>
+	<li> <a href="{% url "auth:login" %}"> login  </a> </li>
+	<li> <a href="{% url "auth:logout" %}"> logout </a> </li>
+	<li> <a href="{% url "auth:mypage" %}"> mypage </a> </li>
+	<li> <a href="{% url "posts:new" %}"> 글쓰기 </a> </li>
+</ul>
+{% endblock %}

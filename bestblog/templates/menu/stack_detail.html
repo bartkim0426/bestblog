@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block content %}
+	<div class="stack_category">
+	<h2> posts of {{ stack.category }}</h2>
+
+	<ul>
+	{% for post in posts %}
+		<li> <a href="{% url "posts:detail" post_id=post.id %}">{{ post.title }}</a> </li>
+	{% endfor  %}
+	</ul>
+</div>
+
+<div class="child_stack">
+	{% if stack.child.exists %}
+	<h3> Sub Categoris </h3>
+	{% for child_stack in stack.child.all %}
+	<ul>
+		<li><a href="">{{ child_stack.category }} </a>
+	</ul>
+	{% endfor %}
+	{% endif %}
+</div>
+{% endblock %}

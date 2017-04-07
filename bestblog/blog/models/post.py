@@ -1,5 +1,6 @@
 from django.db import models
 from django.urls.base import reverse
+from django.contrib.auth.models import User
 
 
 class PostManager(models.Manager):
@@ -22,6 +23,7 @@ class Post(models.Model):
 
     objects = PostManager()
 
+    user = models.ForeignKey(User, default=1)
     category = models.ForeignKey("Category", default=0)
     title = models.CharField(verbose_name="제목", max_length=20, blank=True)
     content = models.TextField(verbose_name="본문", max_length=1000, blank=True)
@@ -39,7 +41,10 @@ class Post(models.Model):
     def get_absolute_url(self):
         return reverse(
                "posts:detail", 
-               kwargs = {"post_id" : self.id},
+               kwargs = 
+                   {
+                "post_id": self.id,
+                   },
                )
     
     def get_update_url(self):

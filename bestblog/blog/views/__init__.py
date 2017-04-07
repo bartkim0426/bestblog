@@ -1,5 +1,4 @@
-from .posts import index, detail, new, edit, create, update, delete
-
-from .post_menu import stack, etc, archives
-
-from .comments import new_comments, edit_comments, delete_comments, update_comments
+from .posts import *
+from .menu import * 
+from .comments import * 
+from .auth import *
