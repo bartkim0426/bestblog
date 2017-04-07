@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+<h3> Etc </h3>
+
+{% for post in posts %}
+
+	<a href={% url "posts:detail" post_id=post.id %} class="post-title">{{ post.title }}({{ post.comment_set.count }})</a>
+
+{% endfor %}
+{% endblock %}

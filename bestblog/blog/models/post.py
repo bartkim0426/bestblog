@@ -8,10 +8,21 @@ class PostManager(models.Manager):
         return self.filter(is_public=True)
 
 
+class Category(models.Model):
+    
+    slug = models.SlugField(max_length=100, unique=True)
+    category = models.CharField(verbose_name="카테고리", max_length=20)
+    parent_category = models.ForeignKey('self', null=True, blank=True, related_name='child')
+    
+    def __str__(self):
+        return self.category
+
+
 class Post(models.Model):
 
     objects = PostManager()
 
+    category = models.ForeignKey("Category", default=0)
     title = models.CharField(verbose_name="제목", max_length=20, blank=True)
     content = models.TextField(verbose_name="본문", max_length=1000, blank=True)
     image = models.ImageField(

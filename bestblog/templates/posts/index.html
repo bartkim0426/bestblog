@@ -10,7 +10,6 @@
 	  <h3><!--{{ post.description }}-->description</h3>
 	  <hr>
 	  <p>{{ post.content }}
-	  <img src="{{ post.get_image_url }}" alt="{{ post.title }}"/>
 	  </p>
 	  <a href="#" class="continue-reading">Continue reading</a>
 	</div>
@@ -28,6 +27,7 @@
   </article>
 </section>
 {% endfor %}
+<div id="top-btn"><p>Top</p></div>
 
 <a href="{% url 'posts:new' %}"> 새 글쓰기</a>
 

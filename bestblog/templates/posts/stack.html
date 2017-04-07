@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+<h3> Technology Stack </h3>
+
+{% for stack in category %}
+	{% if stack.category != "etc" %}
+		{% if stack.child.exists %}
+		{{ stack.category }}</br>
+		{% for child_stack in stack.child.all %}
+		-{{ child_stack }}</br>
+		{% endfor %}
+		{% endif %}
+	{% endif %}
+{% endfor %}
+
+{% endblock %}

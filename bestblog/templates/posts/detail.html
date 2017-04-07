@@ -4,9 +4,19 @@
 
 <h2>{{ post.title }}</h2>
 <p>
-{{ post.content}} 
+	{{ post.content}}
+	<img src="{{ post.get_image_url }}" alt="{{ post.title }}"/>
 </p>
 
+<p>
+category:
+{% if post.category.parent_category != None %}
+{{ post.category.parent_category }}
+-{{ post.category }}
+{% else %}
+{{ post.category }}
+{% endif %}
+</p>
 {{ post.comment_set.count }} 개의 댓글이 있습니다.</br>
 <ul>
 {% for comment in comments %}
