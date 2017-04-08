@@ -31,6 +31,7 @@ class Post(models.Model):
             null=True,
             blank=True,
             )
+    poste_date = models.DateTimeField(db_index=True, auto_now_add=True)
     is_public = models.BooleanField(
             default=True
             )
