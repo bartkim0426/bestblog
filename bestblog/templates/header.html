@@ -1,20 +1,20 @@
 <header id="main-header">
     <div class="logo">
-      <a href="#">2017 장고스터디</a>
+		<a href="{% url "posts:index" %}">2017 장고스터디</a>
     </div>
     <nav class="category-section">
       <ul>
-        <li><a href="#">Technology stack</a></li>
-        <li><a href="#">Etc</a></li>
-        <li><a href="#">Archives</a></li>
+		  <li><a href="{% url "menu:stack" %}" >Technology stack</a></li>
+		  <li><a href="{% url "menu:archives" %}">Archives</a></li>
+		  <li><a href="{% url "menu:auth" %}">Admin</a></li>
       </ul>
     </nav>
     <nav class="mobile-category">
       <div class="toggle-btn"></div>
       <ul>
-        <li><a href="#">Technology stack</a></li>
-        <li><a href="#">Etc</a></li>
-        <li><a href="#">Archives</a></li>
+		  <li><a href="{% url "menu:stack" %}">Technology stack</a></li>
+        <li><a href="{% url "menu:archives" %}">Archives</a></li>
+        <li><a href="{% url "menu:auth" %}">Admin</a></li>
       </ul>
     </nav>
  </header>

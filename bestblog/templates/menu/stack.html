@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+<h3> Technology Stack </h3>
+
+<div class="stack">
+	<ul>
+{% for stack in category %}
+
+	{% if stack.child.exists %}
+	<p>
+	<li><h3><a href="{% url "menu:stack-detail" stack_slug=stack.slug %}">{{ stack.category }}({{ stack.post_set.count }})</h3></a></li>
+<ul>
+	{% for child_stack in stack.child.all %}
+	<li>-<a href="{% url "menu:stack-detail" stack_slug=child_stack.slug %}">{{ child_stack }}({{ child_stack.post_set.count }})<a></li>
+	{% endfor %}
+	</p>
+	{% else %}
+		
+	{% endif %}
+{% endfor %}
+</ul> 
+</p>
+</div>
+{% endblock %}

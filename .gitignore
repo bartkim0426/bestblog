@@ -90,3 +90,7 @@ ENV/
 
 # sqlite db
 db.sqlite3
+
+# migrations file
+besblog/blog/migrations/
+

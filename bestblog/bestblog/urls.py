@@ -7,8 +7,10 @@ from .views import home
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^posts/', include('blog.urls', namespace='posts')),
-    url(r'^$', home),
+    url(r'^posts/', include('blog.urls.posts', namespace='posts')),
+     url(r'^menu/', include('blog.urls.menu', namespace='menu')),
+     url(r'^auth/', include('blog.urls.auth', namespace='auth')),
+    url(r'^$', home, name="home"),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 if settings.DEBUG:

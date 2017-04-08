@@ -5,10 +5,11 @@
 	<title> {% block title %} {% endblock %} </title> 
 	<link rel="stylesheet" href="{% static "css/main.css" %}">
 	<link rel="stylesheet" href="{% static "css/mediamain.css" %}">
-	<script src="{% static "js/main.js" %}"></script></head>
+</head>
 <body> 
 	{% include "header.html" %}
 	{% block content %} {% endblock %}	
 	{% include "footer.html" %}
-	<p>	<i> made by 동훈& 슬찬 & 언수 </i> </p>
+	<!--	<p>	<i> made by 동훈& 슬찬 & 언수 </i> </p> -->
+	<script src="{% static "js/main.js" %}"></script>
 </body>

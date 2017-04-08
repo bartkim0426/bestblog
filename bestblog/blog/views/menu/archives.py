@@ -1,8 +1,9 @@
 from django.shortcuts import render
 
 
-def home(request):
+def archives(request):
     return render(
            request,
-           "home.html",
+           "menu/archives.html",
+           {},
            )
